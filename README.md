@@ -1,24 +1,30 @@
-# Harve School — Material de Aulas
-dfhotel = pd.read_csv('http://harve.com.br/praticas/reservashotel.csv')
-dfhotel.head()
-## 🌐 O que está neste repositório
-Este repositório contém material de várias aulas e turmas da Harve School, não apenas Python ETL.
-A ideia é organizar o conteúdo por pasta de turma, com cada turma tendo suas próprias pastas de aulas e material dentro delas.
+# Harve School — Material de aulas
 
-### Estrutura atual
-- `Exploração de Dados/` — material de análise e estatística descritiva
-- `Python_ETL/` — material de ETL com Python, SQLAlchemy e SQLite/MySQL
-- `README.md` — este guia de navegação e instalação
+Este repositório reúne materiais de estudo de diferentes módulos da Harve School, com foco em análise de dados, Python, ETL e ferramentas de uso prático em sala de aula.
+
+A ideia é que você consiga navegar facilmente entre as pastas por tema, por aula e por tipo de material, como notebooks, scripts e arquivos de dados.
+
+---
+
+## 🌐 O que há neste repositório
+
+- [Exploração de Dados](Exploração%20de%20Dados/) — análise exploratória, estatística descritiva, visualização e exercícios práticos
+- [Python_ETL](Python_ETL/) — ETL, automações, integração com bancos de dados e consumo de APIs
+- [README.md](README.md) — guia de instalação, uso e referências complementares
+
+---
 
 ## 📁 Como o material está organizado
-A estrutura foi pensada para ser fácil de navegar:
 
-- Cada **turma** tem sua própria pasta no root
-- Dentro de cada turma, há uma pasta para cada **aula**
-- Dentro de cada aula estão notebooks, scripts e arquivos de dados
+A estrutura foi pensada para ser simples e didática:
 
-### Exemplo de navegação
-```
+- Cada tema ou disciplina tem sua própria pasta no nível raiz
+- Dentro dela, existem pastas para cada aula
+- Cada aula pode conter notebooks, scripts e dados
+
+Exemplo:
+
+```text
 Harve-School/
   Exploração de Dados/
     Aula 1/
@@ -33,371 +39,291 @@ Harve-School/
     FUNCTIONS_DICTIONARY.md
 ```
 
-> Se você tiver outra turma, siga o mesmo padrão: `Turma X / Aula Y / material`.
+---
+
+## 🚀 Como começar
+
+1. Abra a pasta do projeto no VS Code
+2. Escolha a disciplina que deseja estudar
+3. Abra o notebook ou o script da aula correspondente
+4. Execute os exemplos na ordem sugerida
+
+Se estiver começando agora, uma boa ordem é:
+
+- Para análise de dados: [Exploração de Dados/EDA.ipynb](Exploração%20de%20Dados/EDA.ipynb)
+- Para ETL e automações: [Python_ETL/Aula 4/01_exportando_csv/exportando_csv.py](Python_ETL/Aula%204/01_exportando_csv/exportando_csv.py)
 
 ---
 
-## 🧭 Guia ideal para quem estuda este material
-
-### Se você está começando agora
-1. Leia este `README.md` para entender a estrutura do repositório.
-2. Abra a pasta da sua turma:
-   - `Exploração de Dados` para análise de dados e estatística
-   - `Python_ETL` para ETL, bancos de dados e pipelines Python
-3. Abra o arquivo de aula correspondente:
-   - Notebooks `.ipynb` para trabalhar em ambiente interativo
-   - Scripts `.py` para executar no terminal
-4. Execute os exemplos na ordem sugerida, de preferência com o Python do seu ambiente local.
-
-### Se você quer um caminho rápido
-- Para **Exploração de Dados**: comece por `Exploração de Dados/EDA.ipynb`
-- Para **Python ETL**: comece por `Python_ETL/Aula 4/01_exportando_csv/exportando_csv.py`
-- Para **SQLAlchemy**: veja `Python_ETL/Aula 4/02_credenciais_bd/credenciais.py` e `Python_ETL/Aula 4/03_lendo_bd/lendo_banco.py`
-
----
-
-## 💻 Instalação recomendada
-
-### 1. Instalar Python
-A forma mais simples é baixar em:
-- [Python 3.12](https://www.python.org/downloads/)
-
-No Windows, marque a opção **Add Python to PATH** durante a instalação.
-
-### 2. Criar um ambiente virtual
-Abra o terminal e rode:
-```bash
-python -m venv .venv
-```
-Depois ative:
-- Windows PowerShell:
-  ```powershell
-  .\.venv\Scripts\Activate.ps1
-  ```
-- Windows CMD:
-  ```cmd
-  .\.venv\Scripts\activate.bat
-  ```
-- macOS/Linux:
-  ```bash
-  source .venv/bin/activate
-  ```
-
-### 3. Instalar dependências
-```bash
-pip install pandas matplotlib seaborn requests sqlalchemy pymysql python-dotenv
-```
-
-> Dica: use `pip install --upgrade pip` antes para garantir a versão mais recente.
-
----
-
-## 🧰 Instalar Git
+## 🧰 Instalação do Python e do pip
 
 ### Windows
-1. Baixe em: https://git-scm.com/download/win
-2. Instale e mantenha as opções padrão.
-3. Abra o **Git Bash** ou o terminal do VS Code.
+
+1. Baixe o Python em: https://www.python.org/downloads/
+2. Durante a instalação, marque a opção “Add Python to PATH”
+3. Finalize a instalação e abra um novo terminal
+4. Verifique se o Python está instalado:
+
+```powershell
+python --version
+python -m pip --version
+```
+
+Se o comando `pip` não estiver disponível, use:
+
+```powershell
+py -m ensurepip --upgrade
+py -m pip install --upgrade pip
+```
 
 ### macOS
+
+```bash
+brew install python
+python3 --version
+python3 -m pip --version
+```
+
+Se o `pip` não estiver disponível:
+
+```bash
+python3 -m ensurepip --upgrade
+python3 -m pip install --upgrade pip
+```
+
+### Linux (Ubuntu/Debian)
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip -y
+python3 --version
+python3 -m pip --version
+```
+
+Se necessário:
+
+```bash
+python3 -m ensurepip --upgrade
+python3 -m pip install --upgrade pip
+```
+
+> Dica: em alguns sistemas, o comando pode ser `python` ou `python3`. Use o que estiver disponível no seu terminal.
+
+---
+
+## 🧪 Criando um ambiente virtual
+
+Um ambiente virtual ajuda a organizar as bibliotecas por projeto e evita conflitos entre aulas.
+
+### Windows PowerShell
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+### Windows CMD
+
+```cmd
+python -m venv .venv
+.\.venv\Scripts\activate.bat
+```
+
+### macOS/Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Para confirmar que o ambiente ativou, rode:
+
+```bash
+python --version
+```
+
+Se estiver usando PowerShell e tiver problema de permissão para ativar o ambiente, execute:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+```
+
+---
+
+## 📦 Instalando bibliotecas úteis
+
+Depois de ativar o ambiente virtual, instale as bibliotecas que serão usadas nas aulas:
+
+```bash
+pip install --upgrade pip
+pip install pandas matplotlib seaborn requests sqlalchemy pymysql python-dotenv jupyterlab
+```
+
+Se quiser uma versão mais enxuta para começar:
+
+```bash
+pip install pandas matplotlib jupyterlab
+```
+
+---
+
+## 🐼 Pequeno tutorial de pandas
+
+O pandas é uma biblioteca essencial para trabalhar com tabelas, CSV, Excel e análise de dados.
+
+### 1. Importar a biblioteca
+
+```python
+import pandas as pd
+```
+
+### 2. Ler um arquivo CSV
+
+```python
+df = pd.read_csv('dados.csv')
+print(df.head())
+```
+
+### 3. Verificar o tipo de dados
+
+```python
+print(df.info())
+```
+
+### 4. Selecionar colunas
+
+```python
+coluna = df['nome_da_coluna']
+print(coluna.head())
+```
+
+### 5. Filtrar linhas
+
+```python
+subset = df[df['idade'] > 30]
+print(subset.head())
+```
+
+### 6. Agrupar dados
+
+```python
+df.groupby('categoria')['valor'].sum()
+```
+
+### 7. Criar uma visualização simples
+
+```python
+import matplotlib.pyplot as plt
+
+df['valor'].plot(kind='hist')
+plt.show()
+```
+
+### 8. Salvar um arquivo novo
+
+```python
+df.to_csv('dados_processados.csv', index=False)
+```
+
+Esses comandos são a base para boa parte dos exercícios desta pasta.
+
+---
+
+## 🧠 Materiais que agregam à aula
+
+Além do conteúdo principal, estes temas ajudam bastante a consolidar o aprendizado:
+
+- Noções básicas de estatística descritiva
+- Visualização de dados com matplotlib e seaborn
+- Introdução a SQL para entender bases relacionais
+- Leitura de arquivos CSV, Excel e JSON
+- Uso de APIs com requests
+- Boas práticas de organização de projetos em Python
+- Git e GitHub para versionar código e trabalhos
+
+Para estudar mais, vale revisar:
+
+- Conceitos de média, mediana, moda e desvio padrão
+- Diferença entre dados qualitativos e quantitativos
+- Uso de gráficos: barras, linhas, histogramas e boxplots
+- Estruturas básicas de DataFrames e séries
+
+---
+
+## 🧰 Git e terminal
+
+### Instalar Git
+
+#### Windows
+
+1. Baixe em: https://git-scm.com/download/win
+2. Instale com as opções padrão
+3. Abra o Git Bash ou o terminal do VS Code
+
+#### macOS
+
 ```bash
 brew install git
 ```
 
-### Ubuntu / Debian
+#### Linux (Ubuntu/Debian)
+
 ```bash
-sudo apt update
-git --version
-sudo apt install git
+sudo apt install git -y
 ```
 
-### Verificar instalação
+### Verificar a instalação
+
 ```bash
 git --version
 ```
 
----
+### Comandos básicos
 
-## 🖥️ Como abrir o terminal e usar Git
-### No Windows / VS Code
-- Abra a pasta do projeto no VS Code
-- Clique em **Terminal > New Terminal**
-- Ou use o atalho: `Ctrl + ``
-- Para abrir o controle de código-fonte, clique no ícone de **Source Control** (ícone de ramificação) na barra lateral esquerda
-
-### Comandos Git importantes
 ```bash
 git config --global user.name "Seu Nome"
 git config --global user.email "seu@email.com"
-```
-Verifica o usuário configurado:
-```bash
-git config --global user.name
-git config --global user.email
-```
-
-### Atualizar o repositório
-```bash
-git pull origin main
-```
-- `git pull` = baixar alterações do repositório remoto e mesclar localmente
-
-### Enviar suas alterações
-```bash
-git add .
-git commit -m "mensagem explicando a mudança"
-git push origin main
-```
-- `git push` = envia suas alterações para o repositório remoto
-
-### Status e histórico
-```bash
 git status
-git log --oneline --decorate --graph -n 10
-```
-- `git status` mostra arquivos modificados
-- `git log` mostra histórico de commits
-
----
-
-## 🍴 Fork e Pull Request — Como documentar seu trabalho
-
-### O que é um Fork?
-Um **fork** é uma cópia pessoal do repositório na sua conta do GitHub. Permite que você trabalhe sem permissão de escrita no repositório original.
-
-### Fluxo recomendado para alunos
-
-#### 1. Fazer um Fork (apenas uma vez)
-1. Abra https://github.com/danielhinsching/Harve-School
-2. Clique em **Fork** no canto superior direito
-3. GitHub criará uma cópia em `https://github.com/SEU_USUARIO/Harve-School`
-
-#### 2. Clonar seu Fork localmente
-```bash
-git clone https://github.com/SEU_USUARIO/Harve-School.git
-cd Harve-School
-```
-> Substitua `SEU_USUARIO` pelo seu nome de usuário do GitHub.
-
-#### 3. Adicionar o repositório original como "upstream" (remoto)
-```bash
-git remote add upstream https://github.com/danielhinsching/Harve-School.git
-```
-Verificar os remotos:
-```bash
-git remote -v
-```
-
-#### 4. Criar uma branch para seu trabalho
-```bash
-git checkout -b aula-sua-disciplina-seu-nome
-```
-Exemplo: `git checkout -b aula-4-python-etl-joao`
-
-#### 5. Trabalhar e fazer commits
-```bash
-git add .
-git commit -m "Adiciona solução do desafio de quartis"
-```
-
-#### 6. Atualizar com alterações do repositório original
-```bash
-git fetch upstream
-git rebase upstream/main
-```
-
-#### 7. Enviar para seu Fork
-```bash
-git push origin aula-sua-disciplina-seu-nome
-```
-
-#### 8. Abrir um Pull Request
-1. Abra https://github.com/SEU_USUARIO/Harve-School
-2. GitHub detectará sua branch e oferecerá um botão **Compare & pull request**
-3. Clique nele, adicione uma descrição e clique em **Create pull request**
-4. Descreva brevemente o que você adicionou:
-   - Exemplo: "Adiciona solução e comentários da Aula 4 — ETL com Python"
-
-#### 9. Aguardar revisão
-O mantenedor do repositório revisará seu PR e pode:
-- ✅ Aceitar (merge)
-- 💬 Pedir alterações (você corrige e faz push na mesma branch)
-- ❌ Recusar (com feedback)
-
-### Manter seu Fork atualizado
-```bash
-git fetch upstream
-git rebase upstream/main
-git push origin main
-```
-
-> Dica: sempre faça `git pull` ou `git fetch` antes de começar a trabalhar para evitar conflitos.
-
----
-
-## 📘 Seções deste README
-1. [Como funciona a pasta por turma/aula](#como-funciona-a-pasta-por-turmaaula)
-2. [Instalação e ambiente](#instalação-e-ambiente)
-3. [Git e terminal](#git-e-terminal)
-4. [Fork e Pull Request](#-fork-e-pull-request--como-documentar-seu-trabalho)
-5. [Material de Exploração de Dados](#material-de-exploração-de-dados)
-6. [Perguntas de Revisão — Aula 1](#perguntas-de-revisão--aula-1-exploração-de-dados)
-7. [Material de Python ETL](#material-de-python-etl)
-8. [SQLAlchemy e bancos](#sqlalchemy-e-bancos)
-9. [Bibliotecas recomendadas](#bibliotecas-recomendadas)
-10. [Links úteis](#links-úteis)
-
----
-
-## Como funciona a pasta por turma/aula
-Neste repositório, cada turma ou disciplina deve ter sua própria pasta no nível raiz.
-
-### Exemplo de organização:
-```
-Harve-School/
-  Exploração de Dados/
-    Aula 1/
-    Aula 2/
-    Aula 3/
-    EDA.ipynb
-  Python_ETL/
-    Aula 3/
-    Aula 4/
-    Harve_School_API_application.ipynb
-    install.py
-    FUNCTIONS_DICTIONARY.md
-```
-
-- `Exploração de Dados/` é a pasta desta disciplina principal.
-- `Python_ETL/` é o material do módulo de ETL em Python.
-- Cada `Aula X/` deve conter notebooks, scripts e dados específicos.
-- Arquivos `.ipynb` são usados para notebooks interativos.
-- Arquivos `.py` são exercícios ou exemplos executáveis.
-
----
-
-## Instalação e ambiente
-### Requisitos básicos
-- Python 3.10 ou superior
-- Git instalado
-- Conexão com internet para baixar pacotes e consultar APIs
-
-### Criar e usar ambiente virtual
-```bash
-python -m venv .venv
-```
-Ative o ambiente:
-- PowerShell:
-  ```powershell
-  .\.venv\Scripts\Activate.ps1
-  ```
-- macOS/Linux:
-  ```bash
-  source .venv/bin/activate
-  ```
-
-### Instalar bibliotecas comuns
-```bash
-pip install pandas matplotlib seaborn requests sqlalchemy pymysql python-dotenv
-```
-
----
-
-## Git e terminal
-### Abrindo o terminal
-- No VS Code: `Terminal > New Terminal`
-- No Windows: pesquise por **PowerShell** ou **Git Bash**
-- No macOS/Linux: abra o aplicativo Terminal
-
-### Verificar usuário Git
-```bash
-git config --global user.name
-git config --global user.email
-```
-
-### Configurar usuário Git
-```bash
-git config --global user.name "Seu Nome"
-git config --global user.email "seu@email.com"
-```
-
-### Fluxo básico com Git
-```bash
 git pull origin main
-# trabalhar nas alterações
-git status
 git add .
 git commit -m "Adiciona material da aula"
 git push origin main
 ```
 
-### O que é cada comando
-- `git pull`: traz as últimas mudanças do repositório remoto
-- `git add .`: prepara arquivos para commit
-- `git commit -m "..."`: cria um ponto de versão local
-- `git push`: envia suas mudanças para o GitHub remoto
-- `git status`: mostra arquivos alterados
-
-### Ícone de controle de versão no VS Code
-No VS Code, o ícone de controle de versão parece uma ramificação ou fonte:
-- clique nele para ver arquivos modificados
-- use os botões `+` para stage, `✓` para commit e `...` para ações adicionais
-
 ---
 
-## Material de Exploração de Dados
-A pasta principal para esta disciplina é `Exploração de Dados`.
+## 🍴 Fork e Pull Request
 
-### Conteúdo disponível
-- `EDA.ipynb` — notebook principal de exploração de dados
-- `Aula 1/`, `Aula 2/`, `Aula 3/` — pastas onde cada aula deve guardar material específico
-- `Exploração_De_Dados/*.py` — scripts gerados para separar os exercícios do notebook
+Se você quiser contribuir com o repositório, o fluxo mais comum é:
 
-### O que aprender aqui
-- Tipos de dados qualitativos e quantitativos
-- Medidas de posição: média, mediana e moda
-- Medidas de dispersão: amplitude, desvio padrão, CV
-- Quartis, boxplot e outliers
-- Distribuição de frequência e tabelas de contingência
+1. Fazer um fork no GitHub
+2. Clonar o fork localmente
+3. Criar uma branch para o trabalho
+4. Fazer commits com mudanças claras
+5. Enviar para o GitHub
+6. Abrir um Pull Request
 
-### Dicas de instalação específicas
-Para análise de dados, recomendamos também:
+Exemplo:
+
 ```bash
-pip install jupyterlab
-```
-Se preferir usar o notebook localmente:
-```bash
-jupyter notebook
+git clone https://github.com/SEU_USUARIO/Harve-School.git
+cd Harve-School
+git checkout -b aula-4-python-etl-seu-nome
 ```
 
 ---
 
-## Perguntas de Revisão — Aula 1: Exploração de Dados
-Use como quiz aberto com a turma ou como autoestudo. As respostas estão no final.
+## ✅ Dica final para o estudo
 
-## Tipos de dados
+A melhor forma de aprender com este material é:
 
-1. Qual a diferença entre dado qualitativo e quantitativo?
+- ler o conceito da aula
+- rodar os exemplos no terminal ou notebook
+- alterar parâmetros e experimentar por conta própria
+- registrar dúvidas e soluções em anotações
 
-2. Nominal e ordinal — qual a diferença? Dê um exemplo de cada.
+Se preferir, comece com um exemplo simples e vá evoluindo aos poucos.
 
-3. Contínuo e discreto — qual a diferença? Dê um exemplo de cada.
-
-4. Por que telefone é um dado qualitativo, mesmo sendo escrito com números?
-
-5. O que é uma variável dummy (dicotômica)?
-
-6. "Tamanho da casa: pequeno, médio, grande" é que tipo de dado?
-
-## Medidas de posição
-
-1. Como se calcula a média?
-
-2. O que é a mediana e por que precisa ordenar os dados antes?
-
-3. Quando n é par, como se acha a mediana?
-
-4. O que é a moda? Ela pode ter mais de um valor?
 
 5. Por que a média é mais sensível a outliers que a mediana?
 
